@@ -1856,6 +1856,10 @@ body {
 }
 
 /* 浏览器不支持蓝牙时的提示条 */
+.ble-hint[hidden] {
+    display: none !important;
+}
+
 .ble-hint {
     display: flex;
     flex-direction: column;
@@ -1898,6 +1902,12 @@ body {
     input[type=text],
     input[type=number] {
         max-width: 100%;
+    }
+
+    /* 小屏收窄标题的上下留白，避免首屏大片空白 */
+    h3 {
+        padding: 28px 16px 24px;
+        font-size: 26px;
     }
 
     /* 手指点得准：按钮至少 44px 高 */
