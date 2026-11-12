@@ -1786,7 +1786,7 @@ async function preConnect() {
   }
   else {
     resetVariables();
-    if (!navigator.bluetooth || typeof navigator.bluetooth.requestDevice !== 'function') {
+    if (!('bluetooth' in navigator)) {
       addLog('当前浏览器不支持蓝牙（Web Bluetooth）。', '', 'error');
       addLog('• iPhone：请用 Bluefy 浏览器打开本页，Safari 不支持蓝牙');
       addLog('• Android：请用 Chrome / Edge，并确认页面地址是 https');
@@ -2637,7 +2637,7 @@ function checkDebugMode() {
 
 /* 手机兼容：检测当前浏览器能否调用 Web Bluetooth */
 function checkBleSupport() {
-  const supported = !!(navigator.bluetooth && typeof navigator.bluetooth.requestDevice === 'function');
+  const supported = ('bluetooth' in navigator);
   const hint = document.getElementById('bleSupportHint');
   if (!supported && hint) hint.hidden = false;
   return supported;
